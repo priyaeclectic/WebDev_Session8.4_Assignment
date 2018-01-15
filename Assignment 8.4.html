@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Assignment 8.4 </title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  body {
+  overflow: hidden;
+}
+
+
+/* Preloader */
+
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  z-index: 99;  /* makes sure it stays on top */
+}
+
+#status {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: 50%; /* centers the loading animation horizontally one the screen */
+  top: 50%;  /* centers the loading animation vertically one the screen */
+  background-image: url(https://www.createwebsite.net/wp-content/uploads/2015/09/Loader.gif);  /* loading animation pic */
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: -100px 0 0 -100px;
+}
+  </style>
+</head>
+
+<body>
+	<div class="container">
+	  <div id="jumbo" class="jumbotron">
+	    <h1 id="h1">Sample Jumbotron</h1>      
+	    <p id="para">This is a sample paragraph displayed within a jumbotron. This content is changeable according to the buttons added. </p>
+	  </div>     
+	</div>
+	<input type="button" id="hide" value="Hide">
+	<input type="button" id="show" value="Show">
+	<input type="button" id="change" value="Change">
+<!-- Preloader -->
+<div id="preloader">
+  <div id="status">&nbsp;</div>
+</div>
+
+</body>
+<script type="text/javascript">
+
+$(window).on('load', function() { // makes sure the whole site is loaded  
+  $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website. 
+  $('body').delay(350).css({'overflow':'visible'});
+});
+
+$("#hide").click(function(){			//Click event for hide button
+	    $("h1").hide();
+	    $("p").hide();
+});
+
+$("#show").click(function(){			//Click event for show button
+	    $("h1").show();
+	    $("p").show();
+});
+
+$("#change").click(function(){			//Click event for change button
+	    document.getElementById("h1").style.color='red';
+	    document.getElementById("para").style.fontSize='200%';
+});
+</script>	
+</html>
